@@ -2,8 +2,6 @@ package ru.netology.web;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
-import org.checkerframework.checker.units.qual.K;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -29,7 +27,7 @@ public class OrderingCardDelivery {
         $("[data-test-id=city] input").setValue("Москва");
         String date = generateDate(5, "dd.MM.yyyy"); // генерация даты
         $("[data-test-id='date'] input").click();
-        $("[data-test-id='date'] input").sendKeys(Keys.COMMAND + "a");
+        $("[data-test-id='date'] input").doubleClick(); // выделение содержимого
         $("[data-test-id='date'] input").sendKeys(date);
         $("[data-test-id=name] input").setValue("Иванов Иван");
         $("[data-test-id=phone] input").setValue("+95000000000");
