@@ -28,10 +28,11 @@ public class OrderingCardDelivery {
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
         String date = generateDate(5, "dd.MM.yyyy"); // генерация даты
-        $("[data-test-id='date']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-        $("[data-test-id='date']").setValue(date);
-        $("[data-test-id=name]").setValue("Иванов Иван");
-        $("[data-test-id=phone]").setValue("+95000000000");
+        $("[data-test-id='date'] input").click();
+        $("[data-test-id='date'] input").sendKeys(Keys.COMMAND + "a");
+        $("[data-test-id='date'] input").sendKeys(date);
+        $("[data-test-id=name] input").setValue("Иванов Иван");
+        $("[data-test-id=phone] input").setValue("+95000000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
         $(".notification__content")
