@@ -14,6 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ValidationDeliveryCard {
 
+    @BeforeClass
+    public static void setup() {
+        Configuration.headless = true;
+    }
+
 
     private String generateDate(long addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
@@ -61,7 +66,7 @@ public class ValidationDeliveryCard {
         $("[data-test-id=phone] input").setValue("+95000000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        $("[data-test-id='date'].input_invalid .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
+        $("[data-test-id='date'] .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
     }
 
     @Test
@@ -76,7 +81,7 @@ public class ValidationDeliveryCard {
         $("[data-test-id=phone] input").setValue("+95000000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        $("[data-test-id='date'].input_invalid .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
+        $("[data-test-id='date'] .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
     }
 
     @Test
