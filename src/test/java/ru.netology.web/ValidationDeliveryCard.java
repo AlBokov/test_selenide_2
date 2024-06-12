@@ -61,7 +61,7 @@ public class ValidationDeliveryCard {
         $("[data-test-id=phone] input").setValue("+95000000000");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        $("[data-test-id='dat'].input_invalid .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
+        $("[data-test-id='date'].input_invalid .input__sub").shouldHave(Condition.exactText("Заказ на выбранную дату невозможен"));
     }
 
     @Test
